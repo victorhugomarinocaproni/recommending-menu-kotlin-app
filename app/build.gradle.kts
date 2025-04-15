@@ -19,6 +19,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"base_url_API\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -35,6 +38,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -51,8 +55,8 @@ dependencies {
     implementation(libs.androidx.material3)
 
     // Dependency Injection and Networking(API - HTTP requests)
-    implementation(libs.insert.koin.koin.android)
-    implementation(libs.ktor.client.core)
+    implementation(libs.bundles.koin)
+    implementation(libs.bundles.ktor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

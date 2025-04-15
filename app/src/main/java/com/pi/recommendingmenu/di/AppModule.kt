@@ -1,12 +1,14 @@
 package com.pi.recommendingmenu.di
 
+import com.pi.recommendingmenu.core.data.networking.HttpClientFactory
+import io.ktor.client.engine.cio.CIO
 import org.koin.dsl.module
 
 val appModule = module {
 
+    single { HttpClientFactory.create(CIO.create()) }
+
     // TODO:
-    //  1. Implement all the Network Layer (utility: ErrorHandling, Result class, Error class, etc...)
-    //  2. Implement the HttpClientFactory to make the API requests
     //  3. Implement the Data Layer: RemoteDataSource and DataSource
     //  4. Implement the DI module configuration
 
