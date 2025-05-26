@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RecommendingMenu</string>
+    <string name="app_name">TacoMatch</string>
 
     <!-- Recipe Screen -->
     <string name="recipe_screen_title">Recomendação</string>

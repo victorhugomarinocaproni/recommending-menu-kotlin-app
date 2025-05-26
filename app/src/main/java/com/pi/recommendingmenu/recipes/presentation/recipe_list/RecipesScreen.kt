@@ -37,9 +37,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.pi.recommendingmenu.R
 import com.pi.recommendingmenu.core.presentation.ObserveAsEvent
-import com.pi.recommendingmenu.recipes.presentation.RecipeAction
-import com.pi.recommendingmenu.recipes.presentation.RecipeEvents
-import com.pi.recommendingmenu.recipes.presentation.RecipesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,7 +61,7 @@ fun RecipesScreenRoot(
 
     Scaffold(topBar = {
         TopAppBar(
-            title = { "teste" },
+            title = { Text(text = "teste") },
             navigationIcon = {
                 IconButton(onClick = { onBackClick() } ) {
                     Icon(

@@ -1,4 +1,4 @@
-package com.pi.recommendingmenu.recipes.presentation
+package com.pi.recommendingmenu.recipes.presentation.recipe_list
 
 interface RecipeEvents {
     data class OnSuccess(val message: String) : RecipeEvents

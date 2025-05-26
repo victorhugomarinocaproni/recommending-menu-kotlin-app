@@ -1,4 +1,4 @@
-package com.pi.recommendingmenu.recipes.presentation
+package com.pi.recommendingmenu.recipes.presentation.recipe_list
 
 sealed interface RecipeAction {
     data object OnLikeRecipe : RecipeAction

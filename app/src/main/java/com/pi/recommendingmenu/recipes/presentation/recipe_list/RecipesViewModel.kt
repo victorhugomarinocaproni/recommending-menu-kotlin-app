@@ -1,8 +1,7 @@
-package com.pi.recommendingmenu.recipes.presentation
+package com.pi.recommendingmenu.recipes.presentation.recipe_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pi.recommendingmenu.recipes.presentation.recipe_list.RecipeState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
