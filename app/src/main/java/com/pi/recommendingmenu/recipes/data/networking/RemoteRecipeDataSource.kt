@@ -10,18 +10,29 @@ import com.pi.recommendingmenu.recipes.data.networking.dto.RecipeResponseDto
 import com.pi.recommendingmenu.recipes.domain.Recipe
 import com.pi.recommendingmenu.recipes.domain.RecipeDataSource
 import io.ktor.client.HttpClient
-import io.ktor.client.request.get
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
 
 class RemoteRecipeDataSource(
     private val httpClient: HttpClient
 ): RecipeDataSource {
     override suspend fun getRecipes(): Result<List<Recipe>, NetworkError> {
         return safeCall<RecipeResponseDto> {
-            httpClient.get(
-                urlString = constructUrl("/recipes")
-            )
+            httpClient.post(
+                urlString = constructUrl("knn/recommendation")
+            ) {
+                setBody("""
+                    {
+                        "ingredients": [
+                            "cogumelo",
+                            "pimenta jalapeno",
+                            "coentro"
+                        ]
+                    }
+                """.trimIndent())
+            }
         }.map { response ->
-            response.data.map { it.toRecipe() }
+            response.recommendations.map { it.toRecipe() }
         }
     }
 }

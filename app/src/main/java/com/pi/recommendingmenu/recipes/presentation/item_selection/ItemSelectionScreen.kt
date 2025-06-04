@@ -25,13 +25,13 @@ fun ItemSelectionScreenRoot(
     ) {
         Text(text = "Testando App Navigation")
         Button(
-            onClick = onNavigate,
+            onClick = { viewModel.onAction(ItemSelectionActions.LoadIngredients) },
             modifier = Modifier
                 .wrapContentHeight()
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Text(text = "Go to Recipes List")
+            Text(text = "TESTAR API KNN")
         }
     }
 }

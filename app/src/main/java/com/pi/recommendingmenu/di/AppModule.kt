@@ -1,15 +1,20 @@
 package com.pi.recommendingmenu.di
 
 import com.pi.recommendingmenu.core.data.networking.HttpClientFactory
+import com.pi.recommendingmenu.recipes.data.networking.RemoteRecipeDataSource
+import com.pi.recommendingmenu.recipes.domain.RecipeDataSource
 import com.pi.recommendingmenu.recipes.presentation.item_selection.ItemSelectionViewModel
 import com.pi.recommendingmenu.recipes.presentation.recipe_list.RecipesViewModel
 import io.ktor.client.engine.cio.CIO
+import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val appModule = module {
 
     single { HttpClientFactory.create(CIO.create()) }
+    singleOf(::RemoteRecipeDataSource).bind<RecipeDataSource>()
 
     viewModelOf(::ItemSelectionViewModel)
     viewModelOf(::RecipesViewModel)

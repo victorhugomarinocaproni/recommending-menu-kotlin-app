@@ -1,7 +1,9 @@
 package com.pi.recommendingmenu.recipes.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Recipe(
-    val id: String,
+    val ingredients: List<String>,
     val name: String,
-    val ingredients: List<Ingredient>
 )

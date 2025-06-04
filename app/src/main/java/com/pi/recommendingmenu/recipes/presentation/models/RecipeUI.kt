@@ -1,22 +1,18 @@
 package com.pi.recommendingmenu.recipes.presentation.models
 
+import com.pi.recommendingmenu.recipes.domain.Ingredient
 import com.pi.recommendingmenu.recipes.domain.Recipe
 
 
 data class RecipeUI(
-    val id: String,
     val name: String,
+    val ingredients: List<String>,
 )
-
-//data class DisplayableTime(
-//    val value: Calendar,
-//    val formatted: String
-//)
 
 fun Recipe.toRecipeUI(): RecipeUI {
     return RecipeUI(
-        id = id,
         name = name,
+        ingredients = ingredients
     )
 }
 

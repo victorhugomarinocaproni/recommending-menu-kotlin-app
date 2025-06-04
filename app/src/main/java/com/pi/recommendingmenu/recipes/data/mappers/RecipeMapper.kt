@@ -5,8 +5,7 @@ import com.pi.recommendingmenu.recipes.domain.Recipe
 
 fun RecipeDto.toRecipe(): Recipe {
     return Recipe(
-        id = id,
         name = name,
-        ingredients = emptyList()
+        ingredients = ingredients
     )
 }
