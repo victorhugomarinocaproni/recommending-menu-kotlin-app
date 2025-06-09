@@ -8,5 +8,8 @@ sealed interface Route {
     data object ItemSelection : Route
 
     @Serializable
-    data object RecipeList : Route
+    data class RecipeList(
+        val ingredients: String,
+        val model: String
+    ) : Route
 }
