@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 sealed interface Route {
 
     @Serializable
-    data object ItemSelection : Route
+    data object WelcomeScreen : Route
 
     @Serializable
     data class RecipeList(

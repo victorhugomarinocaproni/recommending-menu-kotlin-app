@@ -23,12 +23,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.pi.recommendingmenu.R
 import com.pi.recommendingmenu.recipes.presentation.item_selection.components.ItemsChipSelector
+import com.pi.recommendingmenu.recipes.presentation.on_boarding.OnBoardingViewModel
 import com.pi.recommendingmenu.recipes.presentation.utils.TypeConverter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemSelectionScreenRoot(
-    viewModel: ItemSelectionViewModel,
+    viewModel: OnBoardingViewModel,
     onNavigate: (String, String) -> Unit
 ) {
 

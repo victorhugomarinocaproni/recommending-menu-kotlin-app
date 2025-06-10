@@ -2,9 +2,11 @@ package com.pi.recommendingmenu.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.pi.recommendingmenu.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -31,4 +33,11 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     )
     */
+)
+
+val robotoFontFamily = FontFamily(
+    Font(R.font.roboto_regular, FontWeight.Normal),
+    Font(R.font.roboto_condensed_bold_italic, FontWeight.ExtraBold),
+    Font(R.font.roboto_bold, FontWeight.Bold),
+    Font(R.font.roboto_italic, FontWeight.Medium)
 )
