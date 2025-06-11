@@ -1,4 +1,4 @@
-package com.pi.recommendingmenu.recipes.presentation.item_selection.components
+package com.pi.recommendingmenu.recipes.presentation.on_boarding.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -13,13 +13,14 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.pi.recommendingmenu.ui.theme.robotoFontFamily
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -38,7 +39,8 @@ fun ItemsChipSelector(
     ) {
         Text(
             text = title,
-            style = MaterialTheme.typography.titleMedium
+            fontFamily = robotoFontFamily,
+            fontWeight = FontWeight.Normal
         )
 
         LazyVerticalGrid(
@@ -47,11 +49,11 @@ fun ItemsChipSelector(
                 .fillMaxWidth()
                 .heightIn(max = 300.dp)
                 .padding(top = 8.dp)
-                .border(width = 1.dp, Color(0xFFDAD8D8), shape = RoundedCornerShape(8.dp))
-                .padding(8.dp),
+                .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(8.dp))
+                .padding(10.dp),
         ) {
-            items(allItems) { ingredient ->
-                val isSelected = selectedItems.contains(ingredient)
+            items(allItems) { item ->
+                val isSelected = selectedItems.contains(item)
 
                 val isMaxSelected = when {
                     limit == null -> false
@@ -65,21 +67,23 @@ fun ItemsChipSelector(
                     selected = isSelected,
                     onClick = {
                         if (!isMaxSelected || isSelected) {
-                            onItemSelected(ingredient)
+                            onItemSelected(item)
                         }
                     },
                     enabled = isSelected || !isMaxSelected,
                     label = {
                         Text(
-                            text = ingredient,
+                            text = item,
                             modifier = modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
+                            fontFamily = robotoFontFamily,
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                         )
                     },
                     colors = FilterChipDefaults.filterChipColors(
                         selectedContainerColor = Color(0xFF4CAF50),
                         selectedLabelColor = Color.White,
-                        containerColor = if (!isMaxSelected) Color.Transparent else Color.LightGray,
+                        containerColor = if (!isMaxSelected) Color.White else Color.LightGray,
                         labelColor = if (!isMaxSelected) Color.Black else Color.Gray,
                     )
                 )

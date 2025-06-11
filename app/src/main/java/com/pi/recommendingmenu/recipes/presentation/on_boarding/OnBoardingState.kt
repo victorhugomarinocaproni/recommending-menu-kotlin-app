@@ -4,5 +4,10 @@ import androidx.compose.runtime.Immutable
 
 @Immutable
 data class OnBoardingState(
-    val teste : String = "Welcome to Recommending Menu",
+    val ingredients: List<String> = emptyList<String>(),
+    val selectedIngredients: Set<String> = emptySet(),
+    val models: List<String> = emptyList<String>(),
+    val selectedModels: Set<String> = emptySet(),
+    val isModelButtonEnabled: Boolean = false,
+    val isIngredientButtonEnabled: Boolean = false
 )
